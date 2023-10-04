@@ -7,15 +7,17 @@ const Content = () => {
     const handleNameChange = () =>{
         return content[Math.floor((Math.random()*10)/3)];
     }
-  const handleClick = () => {
-    console.log("Button clicked");
+  const handleClick = (e) => {
+    console.log(`${e.target.innerHTML}`);
   };
 
   return (
     <div>
+        {/* when we call the function with (), it will load only once. if we want to load it
+        for each event we need to call it as a anonyms function from the calling area */}
       <p>Let's {handleNameChange()} money</p>
       <br />
-      <button onClick={handleClick}> Check click </button>
+      <button onClick={(e)=> handleClick(e)}> Check click </button>
     </div>
   );
 };
